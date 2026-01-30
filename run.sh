@@ -117,7 +117,7 @@ check_and_install_bore() {
     # Check for cargo
     if ! command_exists cargo; then
         print_error "cargo is not installed. Please install Rust to get cargo."
-        print_message "Install Rust from: https://rustup.rs/"
+        print_message "Install Rust from: http://rustup.rs/"
         print_message "Then run: cargo install bore-cli"
         exit 1
     fi
@@ -164,7 +164,7 @@ extract_bore_url() {
     
     # 2. Try to get from bore status (newer versions)
     if command_exists bore && bore status 2>/dev/null | grep -q "bore.pub"; then
-        bore status 2>/dev/null | grep -o "https://[a-zA-Z0-9.-]*\.bore\.pub"
+        bore status 2>/dev/null | grep -o "http://[a-zA-Z0-9.-]*\.bore\.pub"
         return 0
     fi
     
@@ -200,13 +200,13 @@ start_bore_tunnel() {
     fi
     
     # Extract URL from bore output
-    BORE_URL=$(grep -o "https://[a-zA-Z0-9.-]*\.bore\.pub" "$BORE_OUTPUT" | head -1)
+    BORE_URL=$(grep -o "http://[a-zA-Z0-9.-]*\.bore\.pub" "$BORE_OUTPUT" | head -1)
     
     if [ -z "$BORE_URL" ]; then
         # Try alternative pattern
         BORE_URL=$(grep -o "bore\.pub:[0-9]*" "$BORE_OUTPUT" | head -1)
         if [ -n "$BORE_URL" ]; then
-            BORE_URL="https://$BORE_URL"
+            BORE_URL="http://$BORE_URL"
         fi
     fi
     
