@@ -2,6 +2,8 @@
 
 A sleek, real-time messaging app that lets you chat with friends instantly. Think of it as a **super-fast, private chat room** that you can spin up in seconds - perfect for quick conversations, sharing links, or just having fun with friends!
 
+![Cosmic Interface](images/demo.png)
+
 ## ✨ Features
 
 ### 🌌 **Choose Your Vibe**
